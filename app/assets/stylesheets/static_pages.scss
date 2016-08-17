@@ -1,3 +1,18 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+
+  font-family: "Anonymous Pro", "Inconsolata", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  margin-left: 20px;
+
+  h1 {
+    color: #730E15;
+  }
+
+  p {
+    color: #2E2F30;
+  }
+
+}
