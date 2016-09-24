@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0.1'
+gem 'bootstrap-sass', '3.3.6'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -47,8 +48,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest'
-  gem 'mini_backtrace'
+  gem 'minitest', '5.9.0'
+  gem 'minitest-reporters', '1.1.11'
+  gem 'rails-controller-testing'
 end
 
 group :production do
