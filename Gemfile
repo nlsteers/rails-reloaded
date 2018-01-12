@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.0.2'
+gem 'bcrypt', '3.1.11'
 gem 'bootstrap-sass', '3.3.6'
-
+gem 'psych', '2.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,4 +59,3 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
