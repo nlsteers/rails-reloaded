@@ -94,6 +94,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     pg (0.19.0)
     psych (2.1.1)
+    puma (3.11.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -185,6 +186,7 @@ DEPENDENCIES
   minitest-reporters (= 1.1.11)
   pg
   psych (= 2.1.1)
+  puma
   rails (= 5.0.2)
   rails-controller-testing
   rails_12factor
