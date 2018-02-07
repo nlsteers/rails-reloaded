@@ -1,10 +1,17 @@
-<header class="navbar navbar-inverse">
-  <div class="container">
-    <%= link_to "Tweetur", root_path, id: "logo" %>
-    <nav>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tweeturnav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Tweetur", root_path, id: "logo" %>
+    </div>
+    <div class="collapse navbar-collapse" id="tweeturnav">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home'), root_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Help'), help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", '#' %></li>
           <li class="dropdown">
@@ -12,18 +19,18 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to link_to raw('<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile'), current_user %></li>
+              <li><%= link_to link_to raw('<span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Settings'), '#' %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
+                <%= link_to link_to raw('<span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Log out'), logout_path, method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to raw('<span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in'), login_path %></li>
         <% end %>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav> 
