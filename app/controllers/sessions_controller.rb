@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    /debugger/
   end
 
   def create # creates a new session
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
       else
         forget(@user)
       end
-  		redirect_to(user_url(@user.id))
+  		redirect_back_or(user_url(@user.id))
   	else
   		flash.now[:danger] = 'Invalid email/password combination'
   		render 'new'

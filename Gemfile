@@ -27,6 +27,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.11'
 
+# Generate fake user profiles
+gem 'faker', '1.7.3'
+
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 # Use Puma as the app server
 gem 'puma'
 
