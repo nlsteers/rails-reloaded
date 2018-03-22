@@ -16,7 +16,7 @@ User.create!(name: "Nathaniel Steers",
 	firstname = Faker::Name.first_name
 	lastname = Faker::Name.last_name
 	name = firstname + " " + lastname
-	email = "#{firstname}-#{n+1}@testuser.com"
+	email = "#{firstname}.#{lastname}#{n+1}@testuser.com"
 	password = "password"
 	User.create!(name: name,
 				email: email,
