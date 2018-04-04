@@ -1,0 +1,11 @@
+<h1>Tweetur</h1>
+
+<p>
+  Hi <%= @user.name %>, 
+</p>
+
+<p>
+	Welcome to Tweetur, please activate your account by clicking the link below:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

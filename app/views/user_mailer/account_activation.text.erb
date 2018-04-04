@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+Welcome to Tweetur, please activate your account by clicking the link below:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
