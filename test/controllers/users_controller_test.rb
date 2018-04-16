@@ -4,13 +4,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:testuser)
     @otheruser = users(:otheruser)
-    @inactiveuser = users(:inactiveuser)
   end
 
   test 'should get new' do
     get signup_path
     assert_response :success
-    assert_select "title", full_title("Sign up")
+    assert_select 'title', full_title('Sign up')
   end
 
   test 'redirect edit when not logged in' do
@@ -48,7 +47,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'admin status cannot be edited via web' do
     log_in_as(@otheruser)
     assert_not @otheruser.admin?
-    patch user_path(@otheruser.id), params: { user: { password: "password", password_confirmation: "password", admin: true } }
+    patch user_path(@otheruser.id), params: { user: { password: 'password', password_confirmation: 'password', admin: true } }
     assert_not @otheruser.reload.admin?
   end
 
@@ -64,11 +63,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       delete user_path(@user.id)
     end
-    assert_redirected_to root_url
-  end
-
-  test 'redirect show for inactivate accounts' do
-    get user_path(@inactiveuser.id)
     assert_redirected_to root_url
   end
 end

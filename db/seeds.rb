@@ -6,6 +6,13 @@ User.create!(name: 'Nathaniel Steers',
              activated: true,
              activated_at: Time.zone.now)
 
+User.create!(name: 'Inactive User',
+             email: 'inactive@user.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             admin: false,
+             activated: false)
+
 99.times do |n|
   firstname = Faker::Name.first_name
   lastname = Faker::Name.last_name

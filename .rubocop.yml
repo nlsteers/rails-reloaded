@@ -1,4 +1,6 @@
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
 Metrics/LineLength:
   Enabled: false

@@ -4,5 +4,9 @@
 	<% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "Are you sure?" } %>
-  	<% end %>
+    <% if user.activated == false %>
+      <p><mark>This user has not activated their account</mark></p>
+    <% end %>                          
+      
+	<% end %>
 </li>

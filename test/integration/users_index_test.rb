@@ -12,7 +12,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_template 'users/index'
     assert_select 'div.pagination', count: 2
-    first_page_of_users = User.where(activated: true).paginate(page: 1)
+    first_page_of_users = User.paginate(page: 1)
     first_page_of_users.each do |user|
       assert_select 'a[href=?]', user_path(user.id), text: user.name
       unless user == @admin
@@ -30,9 +30,27 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'delete', count: 0
   end
 
-  test 'do not display inactive accounts for index' do
+  test 'do not display inactive accounts for index to nonadmins' do
     log_in_as(@notadmin)
     get users_path
     assert_select 'a[href=?]', user_path(@inactiveuser.id), text: @inactiveuser.name, count: 0
+  end
+
+  test 'do display inactive accounts for index to admins' do
+    log_in_as(@admin)
+    get users_path
+    assert_select 'a[href=?]', user_path(@inactiveuser.id), text: @inactiveuser.name, count: 1
+  end
+
+  test 'do not show inactive account profiles if not admin' do
+    log_in_as(@notadmin)
+    get user_path(@inactiveuser.id)
+    assert_redirected_to root_url
+  end
+
+  test 'show inactive account profiles to admins' do
+    log_in_as(@admin)
+    get user_path(@inactiveuser.id)
+    assert_select 'h1', text: @inactiveuser.name, count: 1
   end
 end
