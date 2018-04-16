@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    return @users = User.paginate(page: params[:page]) if current_user.admin?
-    @users = User.where(activated: true).paginate(page: params[:page])
+    return @users = User.paginate(page: params[:page]).order('id ASC') if current_user.admin?
+    @users = User.where(activated: true).paginate(page: params[:page]).order('id ASC')
   end
 
   def new
