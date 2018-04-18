@@ -1,0 +1,46 @@
+one:
+  content: "First fixture"
+  created_at: <%= 10.minutes.ago %>
+  user: testuser
+
+two:
+  content: "A second fixture here"
+  created_at: <%= 3.years.ago %>
+  user: testuser
+
+three:
+  content: "Look at this third fixture"
+  created_at: <%= 2.hours.ago %>
+  user: testuser
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: testuser
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: testuser
+<% end %>
+
+first:
+  content: "First post"
+  created_at: <%= 2.years.ago %>
+  user: otheruser
+
+second:
+  content: "Second post"
+  created_at: <%= 3.days.ago %>
+  user: otheruser
+
+third:
+  content: "I'm the third post"
+  created_at: <%= 10.minutes.ago %>
+  user: anotheruser
+
+fourth:
+  content: "What, a fourth post?"
+  created_at: <%= 4.hours.ago %>
+  user: anotheruser

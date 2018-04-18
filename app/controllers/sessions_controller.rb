@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   # creates a new session
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
-    if @user && @user.authenticate(params[:session][:password])
+    if @user&.authenticate(params[:session][:password])
       if @user.activated?
         log_in(@user)
         if params[:session][:remember_me] == '1'

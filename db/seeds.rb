@@ -6,13 +6,6 @@ User.create!(name: 'Nathaniel Steers',
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name: 'Inactive User',
-             email: 'inactive@user.com',
-             password: 'foobar',
-             password_confirmation: 'foobar',
-             admin: false,
-             activated: false)
-
 99.times do |n|
   firstname = Faker::Name.first_name
   lastname = Faker::Name.last_name
@@ -27,4 +20,17 @@ User.create!(name: 'Inactive User',
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
+end
+
+User.create!(name: 'Inactive User',
+             email: 'inactive@user.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             admin: false,
+             activated: false)
+
+u = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  u.each { |user| user.microposts.create!(content: content) }
 end

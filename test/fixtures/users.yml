@@ -28,7 +28,7 @@ anotheruser:
   activated: true
   activated_at: <%= Time.zone.now %> 
 
-onemmoreuser:
+onemoreuser:
   name: One More User
   email: onemore@user.com
   password_digest: <%= User.digest('password') %>

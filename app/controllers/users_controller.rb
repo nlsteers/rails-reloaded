@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated == true || current_user.admin?
   end
 
@@ -53,15 +54,6 @@ class UsersController < ApplicationController
   # method for passing only the params needed to create a new user
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  # confirms a logged-in user
-
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:warning] = 'Please log in'
-    redirect_to login_url
   end
 
   def correct_user
